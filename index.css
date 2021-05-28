@@ -10,3 +10,15 @@ body {
   width: 100vw; 
   height:90vh;
 }
+
+#controls {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 45%;
+  right: 10px;
+}
+
+#controls > button {
+  margin: 5px;
+}
