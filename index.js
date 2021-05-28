@@ -8,6 +8,8 @@ arm.addEventListener('load', function(){
     zoomEnabled: true,
     controlIconsEnabled: false,
     center: 1,
+    fit: 0,
+    contain: 1,
     eventsHandler: eventsHandler
   });
 
