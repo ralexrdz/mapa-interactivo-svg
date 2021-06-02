@@ -56,6 +56,9 @@ const insertPins = () => {
   g4.addEventListener('click', () => {
     document.getElementById('info-box').classList.add('hidden')
   })
+  g4.addEventListener('touchstart', (e) => {
+    document.getElementById('info-box').classList.add('hidden')
+  })
   g4.addEventListener('mousedown', () => {
     document.getElementById('info-box').classList.add('hidden')
     g4.style.cursor = 'grabbing'
@@ -88,7 +91,7 @@ const insertPins = () => {
 
       showInfoBox(e, e.target.parentElement.id)
     })
-    obj.addEventListener('touched', (e) => {
+    obj.addEventListener('touchstart', (e) => {
       let t = e.target.parentElement.getAttribute('transform')
 
       showInfoBox(e, e.target.parentElement.id)
@@ -102,10 +105,12 @@ const insertPins = () => {
 const showInfoBox = (e, pinId) => {
   let info = document.getElementById('info-box')
   info.innerHTML = `<div class="box"><button onclick="showVideo('${pinId}')">ver video</button><button>ver info</button></div>`
+  let pageX = e.pageX || e.changedTouches[0].pageX 
+  let pageY = e.pageY || e.changedTouches[0].pageY 
   setTimeout(()=> {
     info.classList.remove('hidden')
-    let x =  e.pageX-(info.clientWidth/2)
-    let y = e.pageY-(info.clientHeight+50)
+    let x =  pageX-(info.clientWidth/2)
+    let y = pageY-(info.clientHeight+50)
     info.style.top = `${y}px`
     info.style.left = `${x}px`
   }, 500)

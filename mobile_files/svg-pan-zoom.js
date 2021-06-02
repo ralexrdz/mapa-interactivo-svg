@@ -920,7 +920,7 @@ SvgPanZoom.prototype.handleDblClick = function(evt) {
 SvgPanZoom.prototype.handleMouseDown = function(evt, prevEvt) {
   if (this.options.preventMouseEventsDefault) {
     if (evt.preventDefault) {
-      evt.preventDefault()
+      // evt.preventDefault()
     } else {
       evt.returnValue = false
     }
