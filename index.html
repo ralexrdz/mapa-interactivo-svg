@@ -11,11 +11,7 @@
 
 <body cz-shortcut-listen="true">
   <div id="map">
-    <object
-      id="demo-tiger"
-      type="image/svg+xml"
-      data="tiger.svg"
-    >
+    <object id="mapa-svg" type="image/svg+xml" data="mapa.svg">
       Your browser does not support SVG
     </object>
     <div id="controls">
@@ -23,9 +19,21 @@
       <button id="zoom-out">-</button>
       <button id="reset">R</button>
     </div>
-
   </div>
+
+  <div id="modal" class="hidden">
+    <div id="close-modal">
+      <button onclick="closeModal()">X</button>
+    </div>
+    <div class="wrapper">
+      <div class="frame-container">
+          <div id="player"></div>
+      </div>
+    </div>
+  </div>
+  <div id="info-box" class="hidden"></div>
   <script src="mobile.js"></script>
+  <script src="pins.js"></script>
   <script src="index.js"></script>
 </body>
 

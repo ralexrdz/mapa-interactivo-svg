@@ -713,7 +713,7 @@ SvgPanZoom.prototype.handleMouseWheel = function(evt) {
 
   if (this.options.preventMouseEventsDefault){
     if (evt.preventDefault) {
-      evt.preventDefault();
+      // evt.preventDefault();
     } else {
       evt.returnValue = false;
     }
@@ -947,7 +947,7 @@ SvgPanZoom.prototype.handleMouseDown = function(evt, prevEvt) {
 SvgPanZoom.prototype.handleMouseMove = function(evt) {
   if (this.options.preventMouseEventsDefault) {
     if (evt.preventDefault) {
-      evt.preventDefault()
+      // evt.preventDefault()
     } else {
       evt.returnValue = false
     }

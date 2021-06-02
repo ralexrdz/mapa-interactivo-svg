@@ -6,7 +6,7 @@ body {
   padding: 0;
 }
 
-#demo-tiger {
+#mapa-svg {
   width: 100%; 
   height:90vh;
 }
@@ -27,3 +27,81 @@ body {
 #controls button {
   margin: 5px;
 }
+
+.pin:hover {
+  stroke: black;
+}
+
+#info-box {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  padding: 5px;
+  max-width: 300px;
+  font-family: arial;
+}
+
+#info-box .box {
+  position: relative;
+  background: #aaa;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px; 
+  width: 250px; 
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#info-box .box:before{
+    content: "";
+    position: absolute;
+    top: 150px;
+    left:110px;
+    z-index: 1;
+    border: solid 15px transparent;
+    border-top-color: #aaa;
+} 
+
+#modal{
+  position: absolute;
+  background-color:rgba(0, 0, 0, 80);
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 9999; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#close-modal {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.hidden { display: none !important; }
+
+.wrapper {
+  overflow: hidden;
+  max-width: 100%;
+}
+.frame-container {
+  position: relative;
+  padding-bottom: 56.25%; 
+  padding-top: 25px;
+  width: 300%; 
+  left: -100%; 
+}
+
+.frame-container iframe {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
+} 
