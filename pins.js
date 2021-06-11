@@ -1,6 +1,7 @@
 const pins = [
   {
     id: 'pin1',
+    foro: 'FORO1 ',
     svg: '<circle r="50"></circle>',
     x: 500,
     y: 1500,
@@ -9,6 +10,7 @@ const pins = [
   },
   {
     id: 'pin2',
+    foro: 'FORO2 CON NOMBRE LARGO',
     svg: '<circle r="50"></circle>',
     x: 350,
     y: 950,
@@ -17,6 +19,7 @@ const pins = [
   },
   {
     id: 'pin3',
+    foro: 'FORO3MEGANOMBRESOTE',
     svg: '<circle r="50"></circle>',
     x: 850,
     y: 700,

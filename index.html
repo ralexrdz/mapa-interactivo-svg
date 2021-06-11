@@ -3,13 +3,29 @@
 
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
-  <script src="mobile_files/svg-pan-zoom.js"></script>
-  <script src="mobile_files/hammer.js"></script>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
+  <script src="libraries/svg-pan-zoom.js"></script>
+  <script src="libraries/hammer.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="index.css">
 </head>
 
 <body cz-shortcut-listen="true">
+  <div class="topnav" id="myTopnav">
+    <div id="mobile-title">
+      <h1>FIESTA DE LA MÚSICA</h1>
+    </div>
+    <a href="https://google.com">PROGRAMA</a>
+    <a href="https://google.com">FOROS PARTICIPANTES</a>
+    <a href="https://google.com">ARTISTAS</a>
+    <a href="https://google.com">QUÉ ES LA FIESTA DE LA MÚSICA</a>
+    <a href="https://google.com">FIESTA DE LA MÚSICA EN EL MUNDO</a>
+    <button onclick="abreModalComoFunciona()">CÓMO FUNCIONA EL MAPA</button>
+    <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
   <div id="map">
     <object id="mapa-svg" type="image/svg+xml" data="mapa.svg">
       Your browser does not support SVG
@@ -20,16 +36,31 @@
       <button id="reset">R</button>
     </div>
   </div>
+  <div id="footer">
+    <div class="texto">UNA INICIATIVA DE LA ALIANZA FRANCESA</div>
+    <div id="playrandom">
+      <button></button>
+    </div>
+    <div class="texto">LOREM IPSUM</div>
+    <div class="texto">LOREM IPSUM</div>
+    <div id="comofunciona">
+      <button onclick="abreModalComoFunciona()">¿Cómo funciona el mapa?</button>
+    </div>
+  </div>
 
   <div id="modal" class="hidden">
-    <div id="close-modal">
+    <div id="video-header">
       <button onclick="closeModal()">X</button>
     </div>
-    <!-- <div class="wrapper">
-      <div class="frame-container"> -->
+    <div id="video">
+      <div id="prev-video"><button></button></div>
+      <div class="wrapper">
+        <div class="frame-container">
           <div id="player"></div>
-      <!-- </div>
-    </div> -->
+        </div>
+      </div>
+      <div id="next-video"><button></button></div>
+    </div>
   </div>
   <div id="info-box" class="hidden"></div>
   <script src="mobile.js"></script>

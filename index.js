@@ -36,6 +36,19 @@ let pinTemplate = `
     r="2.2120845" />
 `
 
+const toggleNav = () => {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+
+const abreModalComoFunciona = () => {
+  console.log('abreModalComoFunciona')
+} 
+
 arm.addEventListener('load', function(){
   initializeNavigator()
   insertPins()
@@ -60,7 +73,7 @@ const initializeNavigator = () => {
     zoomEnabled: true,
     controlIconsEnabled: false,
     center: 1,
-    fit: 0,
+    fit: 1,
     contain: 1,
     eventsHandler: eventsHandler,
     minZoom: 0.5
@@ -139,7 +152,20 @@ const insertPins = () => {
 
 const showInfoBox = (e, pinId) => {
   let info = document.getElementById('info-box')
-  info.innerHTML = `<div class="box"><button onclick="showVideo('${pinId}')">ver video</button><button>ver info</button></div>`
+  info.innerHTML = `
+    <div class="box">
+      <div id="box-title">
+        ${pins.find(p => p.id == pinId).foro}
+      </div>
+      <div id="box-links"> 
+        <button onclick="showVideo('${pinId}')">
+          CONCIERTO
+        </button>
+        <button>
+          VISÍTALO
+        </button>
+      </div>
+    </div>`
   let pageX = e.pageX || e.changedTouches[0].pageX 
   let pageY = e.pageY || e.changedTouches[0].pageY 
   setTimeout(()=> {
@@ -176,8 +202,8 @@ const showVideo = (pinId) => {
 
 const onPlayerReady = (event) => {
   setTimeout(() => {
-    // player.playVideo();
-  }, 500)
+    player.playVideo();
+  }, 300)
 }
 
 const onPlayerStateChange = (event) => {
