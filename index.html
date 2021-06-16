@@ -7,6 +7,8 @@
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
   <script src="libraries/svg-pan-zoom.js"></script>
   <script src="libraries/hammer.js"></script>
+  <script src="libraries/moment.min.js"></script>
+  <script src="libraries/modernizr-custom.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="index.css">
 </head>
@@ -14,8 +16,8 @@
 <body cz-shortcut-listen="true">
   <div class="topnav" id="myTopnav">
     <div id="mobile-title">
-      <h1>FIESTA DE LA MÚSICA</h1>
-    </div>
+      <h3>FIESTA DE LA MÚSICA CDMX</h3>
+    </div>  
     <a href="https://google.com">PROGRAMA</a>
     <a href="https://google.com">FOROS PARTICIPANTES</a>
     <a href="https://google.com">ARTISTAS</a>
@@ -27,19 +29,19 @@
     </a>
   </div>
   <div id="map">
-    <object id="mapa-svg" type="image/svg+xml" data="mapa.svg">
+    <object id="mapa-svg" type="image/svg+xml" data="assets/mapa.svg">
       Your browser does not support SVG
     </object>
     <div id="controls">
       <button id="zoom-in">+</button>
       <button id="zoom-out">-</button>
-      <button id="reset">R</button>
+      <!-- <button id="reset">R</button> -->
     </div>
   </div>
   <div id="footer">
     <div class="texto">UNA INICIATIVA DE LA ALIANZA FRANCESA</div>
     <div id="playrandom">
-      <button></button>
+      <button onclick="playRandom()"></button>
     </div>
     <div class="texto">LOREM IPSUM</div>
     <div class="texto">LOREM IPSUM</div>
@@ -50,17 +52,23 @@
 
   <div id="modal" class="hidden">
     <div id="video-header">
-      <button onclick="closeModal()">X</button>
+      <img src="./assets/Logo.png" alt="logo">
+      <span id="titulo1"></span>
+      <span id="vertical"></span>
+      <span id="titulo2"></span>
+      <button id="btn-info" onclick="showInfo()">INFO</button>
+      <button id="btn-map" onclick="closeModal()">MAPA</button>
     </div>
     <div id="video">
-      <div id="prev-video"><button></button></div>
+      <div id="prev-video"><button onclick="playPrevVideo()"></button></div>
       <div class="wrapper">
         <div class="frame-container">
           <div id="player"></div>
         </div>
       </div>
-      <div id="next-video"><button></button></div>
+      <div id="next-video"><button onclick="playNextVideo()"></button></div>
     </div>
+    <div id="video-modal"></div>
   </div>
   <div id="info-box" class="hidden"></div>
   <script src="mobile.js"></script>

@@ -56,7 +56,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url(./fondo.png);
+  background-image: url(./assets/fondo.png);
   font-family: 'LatoThin', 'LatoRegular';
   position: relative;
   min-height: 100vh;
@@ -64,9 +64,11 @@ body {
 
 .topnav {
   overflow: hidden;
-  background-color: #0000FF;
+  background-color: #364795;
   position: relative;
   height: 5vh;
+  display: flex;
+  align-items: center;
 }
 
 .topnav a {
@@ -77,12 +79,11 @@ body {
   padding: 14px 16px;
   text-decoration: none;
   font-size: 15px;
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
 .topnav a:hover {
-  background-color: #ddd;
-  color: black;
+  color: white;
   opacity: 1;
 }
 
@@ -92,12 +93,12 @@ body {
 }
 
 .topnav button {
-  float: right;
   border: none;
   background: none;
   color: white;
   margin: 15px;
-  opacity: 0.7;
+  opacity: 0.9;
+  margin-left: auto;
 }
 
 .topnav #mobile-title {
@@ -109,28 +110,37 @@ body {
 }
 
 @media screen and (max-width: 900px) {
+  div.topnav {
+    height: 8vh;
+  }
   .topnav a, .topnav button {display: none;}
   .topnav a.icon {
-    display: block;
+    display: flex;
     position: absolute;
-    top: -4px;
+    top: 0px;
     right: 5px;
+    align-items: center;
+    height: 100%;
   }
   .topnav #mobile-title {
-    display: inline;
-    margin: 10px auto ;
+    display: flex;
+    /* margin: auto; */
     text-align: center;
     color: white;
+    height: 100%;
+    align-items: center;
   }
-  .topnav #mobile-title h1{
-    margin: auto;
+  .topnav #mobile-title h3{
     text-align: center;
     color: white;
+    padding: 0;
+    flex: 1;
   }
 
-  #footer {
+  div#footer {
     background-color: #0000FF !important;
     justify-content: center;
+    height: 8vh;
   }
 
   #footer div {
@@ -138,12 +148,14 @@ body {
   }
   #footer #comofunciona {
     display: block !important;
+    background-color: #516BE2;
   }
   #footer #comofunciona button {
     display: block !important;
     background: none;
     border: none;
     color: white;
+    font-family: 'LatoBlack';
   }
  
   .topnav.responsive {
@@ -157,6 +169,7 @@ body {
 
   .topnav.responsive #mobile-title {
     margin: 10px;
+    height: 8vh;
   }
   .topnav.responsive .icon {
     position: absolute;
@@ -172,6 +185,48 @@ body {
     display: none;
   }
 
+  div#info-box #box-links button {
+    background: none;
+    border: none;
+    flex: 1;
+    font-size: 0.7rem;
+    color: rgba(250, 250, 250, 0.6);
+  }
+  div#info-box #box-links {
+    flex: 3;
+    display: flex;
+    flex-direction: row;
+  }
+  div#info-box .box {
+    padding: 0px;
+    position: relative;
+    background: #364795;
+    color: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 0;
+    min-width: 250px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  div#info-box {
+    position: absolute;
+    bottom: 8vh;
+    left: auto !important;
+    top: auto !important;
+    z-index: 1;
+    padding: 0;
+    max-width: 100%;
+    height: 8vh;
+    width: 100%;
+    font-family: arial;
+  }
+
+  div#info-box .box:before{
+    display: none;
+  }
   /* End of @media */
 }
 
@@ -232,11 +287,13 @@ body {
   flex-direction: column;
   position: absolute;
   bottom: 45%;
-  right: 10px;
+  right: 30px;
 }
 
 #controls button {
-  margin: 5px;
+  margin: 0px;
+  padding: 10px;
+  font-size: 2rem;
 }
 
 .pin:hover {
@@ -298,7 +355,7 @@ body {
 
 #modal{
   position: absolute;
-  background-color: rgb(105, 15, 15);
+  background-color: black;
   right: 0;
   left: 0;
   top: 0;
@@ -306,7 +363,47 @@ body {
   z-index: 9999; 
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#modal #video-header {
+  color: white;
+  font-size: 50px;
+  font-family: 'LatoThin';
+  display: flex;
+  align-items: center;
   justify-content: center;
+}
+
+#modal #video-header img{
+  margin-left: 30px;
+  margin-right: auto;
+  height: 80px;
+}
+#modal #video-header button{
+  border: none;
+  color: white;
+  padding: 15px;
+  font-family: 'LatoBold';
+  font-size: 1.5rem;
+}
+#modal #video-header #btn-info{
+  margin-left: auto;
+  background-color: #0000FF;
+}
+#modal #video-header #btn-map{
+  background-color: red;
+  margin-right: 30px;
+}
+#modal #video-header span {
+  margin: 0 20px;
+}
+#modal #video-header #titulo1 {
+  text-align: right; 
+}
+#modal #video-header #vertical {
+  border-left: 2px solid white;
+  height: 100%;
 }
 
 #close-modal {
@@ -370,4 +467,3 @@ body {
   width: 100%; 
   height: 100%;
 } 
-

@@ -2,6 +2,7 @@ let panZoom
 let modal
 let currentId
 let player
+let g4
 var arm = document.getElementById("mapa-svg");
 let pinTemplate = `
   <circle
@@ -35,6 +36,10 @@ let pinTemplate = `
     cy="11.257379"
     r="2.2120845" />
 `
+const hidePins = false;
+let playingRandom = false;
+let showPins = []
+let showLaterPins = []
 
 const toggleNav = () => {
   var x = document.getElementById("myTopnav");
@@ -97,14 +102,15 @@ const initializeNavigator = () => {
 
 const insertPins = () => {
   const svg = document.getElementById('mapa-svg').contentDocument
-  let g4 = svg.getElementById('g4')
+  g4 = svg.getElementById('g4')
   g4.style.cursor = 'grab'
   g4.addEventListener('click', () => {
     document.getElementById('info-box').classList.add('hidden')
   })
   g4.addEventListener('touchstart', (e) => {
+    e.preventDefault()
     document.getElementById('info-box').classList.add('hidden')
-  })
+  }, {passive: true})
   g4.addEventListener('mousedown', () => {
     document.getElementById('info-box').classList.add('hidden')
     g4.style.cursor = 'grabbing'
@@ -112,42 +118,62 @@ const insertPins = () => {
   g4.addEventListener('mouseup', () => {
     g4.style.cursor = 'grab'
   })
+  setInterval(() => {
+    showLaterPins.forEach((p,i) => {
+      if( moment(p.date) < moment() ) {
+        showPins.push(p)
+        showLaterPins = showLaterPins.filter(sl => sl != p)
+        addPinsToSvg(p, 0)
+      }
+    })
+  }, 60000)
   pins.forEach((p,i) => {
-
-    let obj = document.createElementNS('http://www.w3.org/2000/svg','g')
-    obj.setAttribute('transform', `translate(${p.x},${p.y}) scale(10 10)`)
-    obj.style.cursor = 'pointer'
-    obj.innerHTML = pinTemplate
-    obj.id = p.id
-    obj.getElementsByTagName('circle')[1].style.fill=  p.fill
-    obj.getElementsByTagName('path')[0].style.fill=  p.fill
-    // obj.getElementsByTagName('circle')[3].classList.add('pin')
-    obj.getElementsByTagName('circle')[3].addEventListener('mouseover', (e) => {
-      console.log(e.target)
-      e.target.style.fill = 'red'
-      // e.target.setAttribute('stroke', 'black')
-      // e.target.setAttribute('fill-opacity', '100%')
-    })
-    obj.getElementsByTagName('circle')[3].addEventListener('mouseleave', (e) => {
-      console.log(e.target)
-      e.target.style.fill = 'white'
-      // e.target.setAttribute('stroke', 'white')
-      // e.target.setAttribute('fill-opacity', '80%')
-    })
-    obj.addEventListener('click', (e) => {
-      let t = e.target.parentElement.getAttribute('transform')
-
-      showInfoBox(e, e.target.parentElement.id)
-    })
-    obj.addEventListener('touchstart', (e) => {
-      let t = e.target.parentElement.getAttribute('transform')
-
-      showInfoBox(e, e.target.parentElement.id)
-    })
-    setTimeout(() => {
-      g4.append(obj)
-    }, (i+1)*500)
+    if( hidePins && moment(p.date) > moment() ) {
+      showLaterPins.push(p)
+    } else {
+      showPins.push(p)
+      addPinsToSvg(p, (i+1)*300 + 500)
+    }
   })
+}
+
+const addPinsToSvg = (p, time) => {
+  let obj = document.createElementNS('http://www.w3.org/2000/svg','g')
+  obj.setAttribute('transform', `translate(${p.x},${p.y}) scale(10 10)`)
+  obj.style.cursor = 'pointer'
+  obj.innerHTML = pinTemplate
+  obj.id = p.id
+  obj.getElementsByTagName('circle')[1].style.fill=  p.fill
+  obj.getElementsByTagName('path')[0].style.fill=  p.fill
+  // obj.getElementsByTagName('circle')[3].classList.add('pin')
+  obj.getElementsByTagName('circle')[3].addEventListener('mouseover', (e) => {
+    e.target.style.fill = 'black'
+    // e.target.setAttribute('stroke', 'black')
+    // e.target.setAttribute('fill-opacity', '100%')
+  })
+  obj.getElementsByTagName('circle')[3].addEventListener('mouseleave', (e) => {
+    e.target.style.fill = 'white'
+    // e.target.setAttribute('stroke', 'white')
+    // e.target.setAttribute('fill-opacity', '80%')
+  })
+  obj.addEventListener('click', (e) => {
+    if (p.foro) {
+      showInfoBox(e, e.target.parentElement.id)
+    } else {
+      showVideo(p.id)
+    }
+  })
+  obj.addEventListener('touchstart', (e) => {
+    e.preventDefault()
+    if (p.foro) {
+      showInfoBox(e, e.target.parentElement.id)
+    } else {
+      showVideo(p.id)
+    }
+  }, {passive: true})
+  setTimeout(() => {
+    g4.append(obj)
+  }, time)
 }
 
 const showInfoBox = (e, pinId) => {
@@ -178,9 +204,19 @@ const showInfoBox = (e, pinId) => {
 }
 
 const showVideo = (pinId) => {
-  const video = pins.find(p => p.id == pinId).video
+  if (currentId) document.getElementsByClassName('frame-container')[0].innerHTML = '<div id="player"></div>'
+  currentId = pinId
+  let pin = pins.find(p => p.id == pinId)
+  const video = pin.video
   modal = document.getElementById('modal')
-  modal.classList.remove('hidden') 
+  modal.classList.remove('hidden')
+  if (pin.foro) {
+    modal.querySelector("#titulo1").innerHTML = pin.foro
+    modal.querySelector("#titulo2").innerHTML = pin.artista
+  } else {
+    modal.querySelector("#titulo1").innerHTML = pin.artista
+    modal.querySelector("#titulo2").innerHTML = pin.pieza
+  }
 
   player = new YT.Player('player', {
     height: '390',
@@ -200,6 +236,25 @@ const showVideo = (pinId) => {
   });
 }
 
+const playPrevVideo = () => {
+  let currentIndex = showPins.indexOf(pins.find(p => p.id == currentId))
+  let prevIndex = currentIndex > 0 ? currentIndex-1 : showPins.length-1
+  let id = showPins[prevIndex].id
+  showVideo(id)
+}
+
+const playNextVideo = () => {
+  let currentIndex = showPins.indexOf(pins.find(p => p.id == currentId))
+  let nextIndex = currentIndex == showPins.length-1 ? 0 : currentIndex+1  
+  let id = showPins[nextIndex].id
+  showVideo(id)
+}
+
+const playRandom = () => {
+  playingRandom = true
+  showVideo(showPins[Math.floor(Math.random() * showPins.length)].id)
+}
+
 const onPlayerReady = (event) => {
   setTimeout(() => {
     player.playVideo();
@@ -208,20 +263,22 @@ const onPlayerReady = (event) => {
 
 const onPlayerStateChange = (event) => {
   if (event.data == 0) {
-    closeModal() 
+    if (playingRandom) {
+      playNextVideo()
+    } else {
+      closeModal() 
+    }
   }
 }
 
 const closeModal = () => {
   modal.classList.add('hidden')
-  modal.innerHTML = '<div id="player"></div>'
-  // document.getElementsByClassName('frame-container')[0].innerHTML = '<div id="player"></div>'
+  playingRandom = false
+  document.getElementsByClassName('frame-container')[0].innerHTML = '<div id="player"></div>'
   if (player.stopVideo) {
     player.stopVideo()
   }
 }
-// function stopVideo() {
-//   player.stopVideo();
-// }
+
 
   
