@@ -94,10 +94,10 @@ const initializeNavigator = () => {
     panZoom.zoomOut()
   });
 
-  document.getElementById('reset').addEventListener('click', function(ev){
-    ev.preventDefault()
-    panZoom.resetZoom()
-  });
+  // document.getElementById('reset').addEventListener('click', function(ev){
+  //   ev.preventDefault()
+  //   panZoom.resetZoom()
+  // });
 }
 
 const insertPins = () => {
@@ -184,12 +184,12 @@ const showInfoBox = (e, pinId) => {
         ${pins.find(p => p.id == pinId).foro}
       </div>
       <div id="box-links"> 
-        <button onclick="showVideo('${pinId}')">
+        <div><button onclick="showVideo('${pinId}')">
           CONCIERTO
-        </button>
-        <button>
+        </button></div>
+        <div><button>
           VISÍTALO
-        </button>
+        </button></div>
       </div>
     </div>`
   let pageX = e.pageX || e.changedTouches[0].pageX 

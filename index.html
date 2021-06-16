@@ -11,6 +11,7 @@
   <script src="libraries/modernizr-custom.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="responsive.css">
 </head>
 
 <body cz-shortcut-listen="true">
@@ -33,6 +34,9 @@
       Your browser does not support SVG
     </object>
     <div id="controls">
+      <div id="playrandom-mobile">
+        <button onclick="playRandom()"></button>
+      </div>
       <button id="zoom-in">+</button>
       <button id="zoom-out">-</button>
       <!-- <button id="reset">R</button> -->
@@ -53,11 +57,15 @@
   <div id="modal" class="hidden">
     <div id="video-header">
       <img src="./assets/Logo.png" alt="logo">
-      <span id="titulo1"></span>
-      <span id="vertical"></span>
-      <span id="titulo2"></span>
-      <button id="btn-info" onclick="showInfo()">INFO</button>
-      <button id="btn-map" onclick="closeModal()">MAPA</button>
+      <div id="title">
+        <span id="titulo1"></span>
+        <span id="vertical"></span>
+        <span id="titulo2"></span>
+      </div>
+      <div id="buttons">
+        <button id="btn-info" onclick="showInfo()">INFO</button>
+        <button id="btn-map" onclick="closeModal()">MAPA</button>
+      </div>
     </div>
     <div id="video">
       <div id="prev-video"><button onclick="playPrevVideo()"></button></div>

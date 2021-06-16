@@ -4,53 +4,88 @@
 
 @font-face {
   font-family: 'LatoBlack';
-  src: url('./fonts/lato-black.eot'); /* IE9 Compat Modes */
-  src: url('./fonts/lato-black?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('./fonts/lato-black.woff') format('woff'), /* Pretty Modern Browsers */
-       url('./fonts/lato-black.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('./fonts/lato-black.svg#svgFontName') format('svg'); /* Legacy iOS */
+  src: url('./fonts/lato-black.eot');
+  /* IE9 Compat Modes */
+  src: url('./fonts/lato-black?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */
+    url('./fonts/lato-black.woff') format('woff'),
+    /* Pretty Modern Browsers */
+    url('./fonts/lato-black.ttf') format('truetype'),
+    /* Safari, Android, iOS */
+    url('./fonts/lato-black.svg#svgFontName') format('svg');
+  /* Legacy iOS */
 }
+
 @font-face {
   font-family: 'LatoBold';
-  src: url('./fonts/lato-bold.eot'); /* IE9 Compat Modes */
-  src: url('./fonts/lato-bold?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('./fonts/lato-bold.woff') format('woff'), /* Pretty Modern Browsers */
-       url('./fonts/lato-bold.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('./fonts/lato-bold.svg#svgFontName') format('svg'); /* Legacy iOS */
+  src: url('./fonts/lato-bold.eot');
+  /* IE9 Compat Modes */
+  src: url('./fonts/lato-bold?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */
+    url('./fonts/lato-bold.woff') format('woff'),
+    /* Pretty Modern Browsers */
+    url('./fonts/lato-bold.ttf') format('truetype'),
+    /* Safari, Android, iOS */
+    url('./fonts/lato-bold.svg#svgFontName') format('svg');
+  /* Legacy iOS */
 }
+
 @font-face {
   font-family: 'LatoItalic';
-  src: url('./fonts/lato-italic.eot'); /* IE9 Compat Modes */
-  src: url('./fonts/lato-italic?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('./fonts/lato-italic.woff') format('woff'), /* Pretty Modern Browsers */
-       url('./fonts/lato-italic.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('./fonts/lato-italic.svg#svgFontName') format('svg'); /* Legacy iOS */
+  src: url('./fonts/lato-italic.eot');
+  /* IE9 Compat Modes */
+  src: url('./fonts/lato-italic?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */
+    url('./fonts/lato-italic.woff') format('woff'),
+    /* Pretty Modern Browsers */
+    url('./fonts/lato-italic.ttf') format('truetype'),
+    /* Safari, Android, iOS */
+    url('./fonts/lato-italic.svg#svgFontName') format('svg');
+  /* Legacy iOS */
 }
+
 @font-face {
   font-family: 'LatoBoldItalic';
-  src: url('./fonts/lato-bolditalic.eot'); /* IE9 Compat Modes */
-  src: url('./fonts/lato-bolditalic?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('./fonts/lato-bolditalic.woff') format('woff'), /* Pretty Modern Browsers */
-       url('./fonts/lato-bolditalic.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('./fonts/lato-bolditalic.svg#svgFontName') format('svg'); /* Legacy iOS */
+  src: url('./fonts/lato-bolditalic.eot');
+  /* IE9 Compat Modes */
+  src: url('./fonts/lato-bolditalic?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */
+    url('./fonts/lato-bolditalic.woff') format('woff'),
+    /* Pretty Modern Browsers */
+    url('./fonts/lato-bolditalic.ttf') format('truetype'),
+    /* Safari, Android, iOS */
+    url('./fonts/lato-bolditalic.svg#svgFontName') format('svg');
+  /* Legacy iOS */
 }
+
 @font-face {
   font-family: 'LatoLigth';
-  src: url('./fonts/lato-ligth.eot'); /* IE9 Compat Modes */
-  src: url('./fonts/lato-ligth?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('./fonts/lato-ligth.svg#svgFontName') format('svg'); /* Legacy iOS */
+  src: url('./fonts/lato-ligth.eot');
+  /* IE9 Compat Modes */
+  src: url('./fonts/lato-ligth?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */
+    url('./fonts/lato-ligth.svg#svgFontName') format('svg');
+  /* Legacy iOS */
 }
+
 @font-face {
   font-family: 'LatoRegular';
-  src: url('./fonts/lato-regular.eot'); /* IE9 Compat Modes */
-  src: url('./fonts/lato-regular?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('./fonts/lato-regular.woff') format('woff'), /* Pretty Modern Browsers */
-       url('./fonts/lato-regular.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('./fonts/lato-regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+  src: url('./fonts/lato-regular.eot');
+  /* IE9 Compat Modes */
+  src: url('./fonts/lato-regular?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */
+    url('./fonts/lato-regular.woff') format('woff'),
+    /* Pretty Modern Browsers */
+    url('./fonts/lato-regular.ttf') format('truetype'),
+    /* Safari, Android, iOS */
+    url('./fonts/lato-regular.svg#svgFontName') format('svg');
+  /* Legacy iOS */
 }
+
 @font-face {
   font-family: 'LatoThin';
-  src: url('./fonts/lato-regular.ttf')  format('truetype') /* Safari, Android, iOS */
+  src: url('./fonts/lato-regular.ttf') format('truetype')
+    /* Safari, Android, iOS */
 }
 
 body {
@@ -109,147 +144,35 @@ body {
   display: none;
 }
 
-@media screen and (max-width: 900px) {
-  div.topnav {
-    height: 8vh;
-  }
-  .topnav a, .topnav button {display: none;}
-  .topnav a.icon {
-    display: flex;
-    position: absolute;
-    top: 0px;
-    right: 5px;
-    align-items: center;
-    height: 100%;
-  }
-  .topnav #mobile-title {
-    display: flex;
-    /* margin: auto; */
-    text-align: center;
-    color: white;
-    height: 100%;
-    align-items: center;
-  }
-  .topnav #mobile-title h3{
-    text-align: center;
-    color: white;
-    padding: 0;
-    flex: 1;
-  }
-
-  div#footer {
-    background-color: #0000FF !important;
-    justify-content: center;
-    height: 8vh;
-  }
-
-  #footer div {
-    display: none !important;
-  }
-  #footer #comofunciona {
-    display: block !important;
-    background-color: #516BE2;
-  }
-  #footer #comofunciona button {
-    display: block !important;
-    background: none;
-    border: none;
-    color: white;
-    font-family: 'LatoBlack';
-  }
- 
-  .topnav.responsive {
-    position: absolute;
-    width: 100%;
-    z-index: 9;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .topnav.responsive #mobile-title {
-    margin: 10px;
-    height: 8vh;
-  }
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-  .topnav.responsive button {
-    display: none;
-  }
-
-  div#info-box #box-links button {
-    background: none;
-    border: none;
-    flex: 1;
-    font-size: 0.7rem;
-    color: rgba(250, 250, 250, 0.6);
-  }
-  div#info-box #box-links {
-    flex: 3;
-    display: flex;
-    flex-direction: row;
-  }
-  div#info-box .box {
-    padding: 0px;
-    position: relative;
-    background: #364795;
-    color: white;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 0;
-    min-width: 250px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  div#info-box {
-    position: absolute;
-    bottom: 8vh;
-    left: auto !important;
-    top: auto !important;
-    z-index: 1;
-    padding: 0;
-    max-width: 100%;
-    height: 8vh;
-    width: 100%;
-    font-family: arial;
-  }
-
-  div#info-box .box:before{
-    display: none;
-  }
-  /* End of @media */
+#playrandom-mobile {
+  display: none;
 }
+
 
 #footer {
   height: 5vh;
   display: flex;
   background-color: beige;
   align-items: center;
-  font-family: 'LatoThin','LatoLigth';
+  font-family: 'LatoThin', 'LatoLigth';
   position: absolute;
   bottom: 0;
   width: 100%;
 }
+
 #footer div {
   margin: 0 10px;
   opacity: 0.7;
 }
+
 #footer #playrandom {
   margin: auto;
 }
+
 #footer #comofunciona {
   display: none;
 }
+
 #footer #playrandom button {
   position: relative;
   background-color: #0000FF;
@@ -273,8 +196,8 @@ body {
 }
 
 #mapa-svg {
-  width: 100%; 
-  height:89vh;
+  width: 100%;
+  height: 89vh;
 }
 
 #map {
@@ -294,6 +217,12 @@ body {
   margin: 0px;
   padding: 10px;
   font-size: 2rem;
+  border: none;
+  margin: 1px;
+}
+
+#controls button:hover {
+  background-color: #777;
 }
 
 .pin:hover {
@@ -317,8 +246,8 @@ body {
   color: white;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
-  border-radius: 10px; 
-  min-width: 250px; 
+  border-radius: 10px;
+  min-width: 250px;
   height: 150px;
   display: flex;
   align-items: center;
@@ -335,32 +264,33 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 #info-box #box-links button {
   padding: 5px;
   background: none;
   border: none;
-  color:rgba(250, 250, 250, 0.6)
+  color: rgba(250, 250, 250, 0.6)
 }
 
-#info-box .box:before{
+#info-box .box:before {
   content: "";
   position: absolute;
   top: 150px;
-  left:110px;
+  left: 110px;
   z-index: 1;
   border: solid 15px transparent;
   border-top-color: #0000FF;
   border-top-width: 70px;
-} 
+}
 
-#modal{
+#modal {
   position: absolute;
   background-color: black;
   right: 0;
   left: 0;
   top: 0;
   bottom: 0;
-  z-index: 9999; 
+  z-index: 9999;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -375,35 +305,45 @@ body {
   justify-content: center;
 }
 
-#modal #video-header img{
+#modal #video-header div {
+  display: flex;
+  font-size: 1.5rem;
+}
+  
+#modal #video-header img {
   margin-left: 30px;
   margin-right: auto;
   height: 80px;
 }
-#modal #video-header button{
+
+#modal #video-header button {
   border: none;
   color: white;
   padding: 15px;
   font-family: 'LatoBold';
   font-size: 1.5rem;
 }
-#modal #video-header #btn-info{
+
+#modal #video-header #btn-info {
   margin-left: auto;
   background-color: #0000FF;
 }
-#modal #video-header #btn-map{
+
+#modal #video-header #btn-map {
   background-color: red;
   margin-right: 30px;
 }
+
 #modal #video-header span {
   margin: 0 20px;
 }
+
 #modal #video-header #titulo1 {
-  text-align: right; 
+  text-align: right;
 }
+
 #modal #video-header #vertical {
   border-left: 2px solid white;
-  height: 100%;
 }
 
 #close-modal {
@@ -412,7 +352,9 @@ body {
   right: 5px;
 }
 
-.hidden { display: none !important; }
+.hidden {
+  display: none !important;
+}
 
 #video {
   display: flex;
@@ -422,6 +364,7 @@ body {
   flex: 1;
   display: flex;
 }
+
 #prev-video button {
   background: none;
   color: white;
@@ -432,6 +375,7 @@ body {
 #prev-video button::after {
   content: ' \2190';
 }
+
 #next-video {
   flex: 1;
   display: flex;
@@ -453,6 +397,7 @@ body {
   max-width: 100%;
   flex: 10;
 }
+
 .frame-container {
   position: relative;
   padding-bottom: 48.25%;
@@ -461,9 +406,9 @@ body {
 }
 
 .frame-container iframe {
-  position: absolute; 
-  top: 0; 
-  left: 0; 
-  width: 100%; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-} 
+}
