@@ -1,4 +1,12 @@
 @media screen and (max-width: 900px) {
+  body {
+    /* background: rgb(255,255,255) !important; */
+    background: -moz-radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(242,242,242,1) 35%, rgba(230,230,230,1) 100%) !important;
+    background: -webkit-radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(242,242,242,1) 35%, rgba(230,230,230,1) 100%) !important;
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(242,242,242,1) 35%, rgba(230,230,230,1) 100%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#e6e6e6",GradientType=1) !important;
+  }
+
   div.topnav {
     height: 8vh;
   }
@@ -39,6 +47,8 @@
     top: 10px;
     right: 10px !important;
     align-items: center;
+    flex-direction: column;
+
   }
 
   #controls>button {
@@ -46,11 +56,22 @@
     padding: 2px !important;
     font-size: 1rem !important;
     width: 25px;
+    border: 1px solid #999;
+    min-width: auto;
+
+  }
+
+  #controls img {
+    width: 20px !important;
+    height: 35px;
+    position: absolute !important;
+    right: 0px !important;
+    top: 56px !important;
   }
 
   #playrandom-mobile {
     display: block;
-    margin: 10px;
+    margin: 20px 10px;
   }
 
   #playrandom-mobile button {
@@ -208,7 +229,7 @@
     position: absolute;
     top: 10vh;
     bottom: 0;
-    display: flex   q;
+    display: flex q;
     left: 0;
     right: 0;
   }
@@ -227,7 +248,6 @@
     display: flex;
     justify-content: center;
   }
-
 
   div#modal #video-header span {
     margin: 0 5px;
@@ -267,6 +287,7 @@
     right: 10px;
     bottom: 0;
   }
+
   div#modal #video button {
 
     font-size: 50px;
@@ -280,5 +301,6 @@
     left: 0;
     right: 0;
   }
+
   /* End of @media */
 }

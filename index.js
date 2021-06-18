@@ -35,6 +35,11 @@ let pinTemplate = `
     cx="7.7629108"
     cy="11.257379"
     r="2.2120845" />
+  <text
+    x="6.5629108"
+    y="12.157379"
+    style="font-size: .2rem;"
+  >TEXT</text>
 `
 const hidePins = false;
 let playingRandom = false;
@@ -52,6 +57,11 @@ const toggleNav = () => {
 
 const abreModalComoFunciona = () => {
   console.log('abreModalComoFunciona')
+  // TODO
+} 
+const abreModalInfo = () => {
+  console.log('abreModalComoFunciona')
+  // TODO
 } 
 
 arm.addEventListener('load', function(){
@@ -139,22 +149,23 @@ const insertPins = () => {
 
 const addPinsToSvg = (p, time) => {
   let obj = document.createElementNS('http://www.w3.org/2000/svg','g')
+  // if (p.foro) {
+  //   obj.setAttribute('transform', `translate(${p.x},${p.y}) scale(15 15)`)
+  // } else {
+  //   obj.setAttribute('transform', `translate(${p.x},${p.y}) scale(10 10)`)
+  // }
   obj.setAttribute('transform', `translate(${p.x},${p.y}) scale(10 10)`)
   obj.style.cursor = 'pointer'
-  obj.innerHTML = pinTemplate
+  obj.innerHTML = pinTemplate.replace('TEXT', p.number )
   obj.id = p.id
   obj.getElementsByTagName('circle')[1].style.fill=  p.fill
   obj.getElementsByTagName('path')[0].style.fill=  p.fill
   // obj.getElementsByTagName('circle')[3].classList.add('pin')
   obj.getElementsByTagName('circle')[3].addEventListener('mouseover', (e) => {
     e.target.style.fill = 'black'
-    // e.target.setAttribute('stroke', 'black')
-    // e.target.setAttribute('fill-opacity', '100%')
   })
   obj.getElementsByTagName('circle')[3].addEventListener('mouseleave', (e) => {
     e.target.style.fill = 'white'
-    // e.target.setAttribute('stroke', 'white')
-    // e.target.setAttribute('fill-opacity', '80%')
   })
   obj.addEventListener('click', (e) => {
     if (p.foro) {
@@ -173,7 +184,8 @@ const addPinsToSvg = (p, time) => {
   }, {passive: true})
   setTimeout(() => {
     g4.append(obj)
-  }, time)
+  }, 10)
+  // }, time)
 }
 
 const showInfoBox = (e, pinId) => {
@@ -226,8 +238,9 @@ const showVideo = (pinId) => {
       'playsinline': 1,
       'modestbranding': 1,
       'showinfo': 0,
-      'fs': 0,
-      'rel': 0
+      // 'fs': 0,
+      'rel': 0,
+
     },
     events: {
       'onReady': onPlayerReady,

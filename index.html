@@ -8,7 +8,6 @@
   <script src="libraries/svg-pan-zoom.js"></script>
   <script src="libraries/hammer.js"></script>
   <script src="libraries/moment.min.js"></script>
-  <script src="libraries/modernizr-custom.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="index.css">
   <link rel="stylesheet" href="responsive.css">
@@ -19,17 +18,18 @@
     <div id="mobile-title">
       <h3>FIESTA DE LA MÚSICA CDMX</h3>
     </div>  
-    <a href="https://google.com">PROGRAMA</a>
-    <a href="https://google.com">FOROS PARTICIPANTES</a>
-    <a href="https://google.com">ARTISTAS</a>
-    <a href="https://google.com">QUÉ ES LA FIESTA DE LA MÚSICA</a>
-    <a href="https://google.com">FIESTA DE LA MÚSICA EN EL MUNDO</a>
+    <a target="_blank" href="https://2021.fiestadelamusica.mx/programa">PROGRAMA</a>
+    <a target="_blank" href="https://2021.fiestadelamusica.mx/foros">FOROS PARTICIPANTES</a>
+    <a target="_blank" href="https://2021.fiestadelamusica.mx/artistas">ARTISTAS</a>
+    <a target="_blank" href="https://2021.fiestadelamusica.mx/que-es">QUÉ ES LA FIESTA DE LA MÚSICA</a>
+    <a target="_blank" href="https://2021.fiestadelamusica.mx/en-el-mundo">FIESTA DE LA MÚSICA EN EL MUNDO</a>
     <button onclick="abreModalComoFunciona()">CÓMO FUNCIONA EL MAPA</button>
     <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
       <i class="fa fa-bars"></i>
     </a>
   </div>
   <div id="map">
+    <img id="logo" src="./assets/logo-fdlm.png" alt="">
     <object id="mapa-svg" type="image/svg+xml" data="assets/mapa.svg">
       Your browser does not support SVG
     </object>
@@ -39,6 +39,7 @@
       </div>
       <button id="zoom-in">+</button>
       <button id="zoom-out">-</button>
+      <img src="./assets/lupa.png" alt="">
       <!-- <button id="reset">R</button> -->
     </div>
   </div>
@@ -56,7 +57,7 @@
 
   <div id="modal" class="hidden">
     <div id="video-header">
-      <img src="./assets/Logo.png" alt="logo">
+      <img src="./assets/logo-fdlm-blanco.png" alt="logo">
       <div id="title">
         <span id="titulo1"></span>
         <span id="vertical"></span>
@@ -76,8 +77,10 @@
       </div>
       <div id="next-video"><button onclick="playNextVideo()"></button></div>
     </div>
-    <div id="video-modal"></div>
   </div>
+
+  <div id="modal-comofunciona" class="hidden"></div>
+  <div id="modal-info" class="hidden"></div>
   <div id="info-box" class="hidden"></div>
   <script src="mobile.js"></script>
   <script src="pins.js"></script>
