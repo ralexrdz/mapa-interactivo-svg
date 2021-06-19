@@ -44,8 +44,8 @@
 
 
   #controls {
-    top: 10px;
-    right: 10px !important;
+    top: 20px;
+    right: 15px !important;
     align-items: center;
     flex-direction: column;
 
@@ -65,8 +65,18 @@
     width: 20px !important;
     height: 35px;
     position: absolute !important;
-    right: 0px !important;
-    top: 56px !important;
+    right: -8px !important;
+    top: -10px !important;
+  }
+
+  div#modal-comofunciona {
+    left: 0;
+    top: 30%;
+    bottom: 9vh;
+    overflow: scroll;
+    border-bottom: 12vh solid #536DE1;
+    z-index: 1;
+    padding: 20px;
   }
 
   #playrandom-mobile {
@@ -229,7 +239,7 @@
     position: absolute;
     top: 10vh;
     bottom: 0;
-    display: flex q;
+    display: flex;
     left: 0;
     right: 0;
   }
@@ -237,6 +247,17 @@
   div#modal #video-header img {
     margin: auto;
     margin-top: 0;
+  }
+
+  div#modal .closeModal {
+    /* display: none; */
+    position: absolute !important;
+    bottom: 0;
+    left: auto;
+    top: auto;
+    right: auto;
+    margin: 0 auto !important;
+    display: flex;
   }
 
   div#modal #video-header #title {
@@ -278,14 +299,14 @@
 
   div#modal #video #prev-video {
     position: absolute;
-    left: 10px;
-    bottom: 0;
+    left: 20%;
+    bottom: 20px;
   }
 
   div#modal #video #next-video {
     position: absolute;
-    right: 10px;
-    bottom: 0;
+    right: 20%;
+    bottom: 20px;
   }
 
   div#modal #video button {

@@ -18,11 +18,11 @@
     <div id="mobile-title">
       <h3>FIESTA DE LA MÚSICA CDMX</h3>
     </div>  
-    <a target="_blank" href="https://2021.fiestadelamusica.mx/programa">PROGRAMA</a>
-    <a target="_blank" href="https://2021.fiestadelamusica.mx/foros">FOROS PARTICIPANTES</a>
-    <a target="_blank" href="https://2021.fiestadelamusica.mx/artistas">ARTISTAS</a>
-    <a target="_blank" href="https://2021.fiestadelamusica.mx/que-es">QUÉ ES LA FIESTA DE LA MÚSICA</a>
-    <a target="_blank" href="https://2021.fiestadelamusica.mx/en-el-mundo">FIESTA DE LA MÚSICA EN EL MUNDO</a>
+    <a href="https://2021.fiestadelamusica.mx/programa">PROGRAMA</a>
+    <a href="https://2021.fiestadelamusica.mx/foros">FOROS PARTICIPANTES</a>
+    <a href="https://2021.fiestadelamusica.mx/artistas">ARTISTAS</a>
+    <a href="https://2021.fiestadelamusica.mx/que-es">QUÉ ES LA FIESTA DE LA MÚSICA</a>
+    <a href="https://2021.fiestadelamusica.mx/en-el-mundo">FIESTA DE LA MÚSICA EN EL MUNDO</a>
     <button onclick="abreModalComoFunciona()">CÓMO FUNCIONA EL MAPA</button>
     <a href="javascript:void(0);" class="icon" onclick="toggleNav()">
       <i class="fa fa-bars"></i>
@@ -34,14 +34,30 @@
       Your browser does not support SVG
     </object>
     <div id="controls">
-      <div id="playrandom-mobile">
+      <!-- <div id="playrandom-mobile">
         <button onclick="playRandom()"></button>
-      </div>
+      </div> -->
       <button id="zoom-in">+</button>
       <button id="zoom-out">-</button>
       <img src="./assets/lupa.png" alt="">
       <!-- <button id="reset">R</button> -->
     </div>
+  </div>
+  <div id="modal-comofunciona" class="hidden">
+    <h3>
+      ¡Navega por un mapa interactivo musical! 
+    </h3>
+    <p>
+      Descubre el paisaje musical que envuelve la Ciudad de México y explora el mapa que creó la Alianza Francesa de la Ciudad de México. No olvides navegar por las 27 propuestas musicales de esta edición, que demuestran una pluralidad de géneros y prácticas de la CDMX
+
+      Podrás encontrar puntos de localización de los múltiples conciertos, ordenados con letras. Dá clic a la hora programada y ve la transmisión. 
+
+      Arrastra, aumenta o disminuye el mapa y ve a detalle el mapa de la ciudad ilustrado por or la diseñadora Naandeye https://naandeyeah.com/. 
+      
+      Averigua también un poco más sobre la historia de la Fiesta de la Música, los foros participantes pero también sobre la Fiesta de la Música en el mundo entero dando click en INFO.
+      
+    </p>
+    <img onclick="closeModal()" class="closeModal" src="./assets/cancel.svg" />
   </div>
   <div id="footer">
     <div class="texto">UNA INICIATIVA DE LA ALIANZA FRANCESA</div>
@@ -63,11 +79,12 @@
         <span id="vertical"></span>
         <span id="titulo2"></span>
       </div>
-      <div id="buttons">
+      <!-- <div id="buttons">
         <button id="btn-info" onclick="showInfo()">INFO</button>
         <button id="btn-map" onclick="closeModal()">MAPA</button>
-      </div>
-    </div>
+      </div> -->
+      <img onclick="closeModal()" class="closeModal" src="./assets/cancel.svg" />
+  </div>
     <div id="video">
       <div id="prev-video"><button onclick="playPrevVideo()"></button></div>
       <div class="wrapper">
@@ -79,8 +96,22 @@
     </div>
   </div>
 
-  <div id="modal-comofunciona" class="hidden"></div>
-  <div id="modal-info" class="hidden"></div>
+  
+  <!-- <div id="modal-info" class="hidden">
+    <h3>
+      ¡Navega por un mapa interactivo musical! 
+    </h3>
+    <p>
+      Descubre el paisaje musical que envuelve la Ciudad de México y explora el mapa que creó la Alianza Francesa de la Ciudad de México. No olvides navegar por las 27 propuestas musicales de esta edición, que demuestran una pluralidad de géneros y prácticas de la CDMX
+
+      Podrás encontrar puntos de localización de los múltiples conciertos, ordenados con letras. Dá clic a la hora programada y ve la transmisión. 
+
+      Arrastra, aumenta o disminuye el mapa y ve a detalle el mapa de la ciudad ilustrado por or la diseñadora Naandeye https://naandeyeah.com/. 
+      
+      Averigua también un poco más sobre la historia de la Fiesta de la Música, los foros participantes pero también sobre la Fiesta de la Música en el mundo entero dando click en INFO.
+      
+    </p>
+  </div> -->
   <div id="info-box" class="hidden"></div>
   <script src="mobile.js"></script>
   <script src="pins.js"></script>

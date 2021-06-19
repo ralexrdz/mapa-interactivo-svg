@@ -307,6 +307,39 @@ body {
   border-top-width: 70px;
 }
 
+#modal-comofunciona {
+  position: absolute;
+  background-color: #536DE1;
+  right: 0;
+  left: 65%;
+  top: 5vh;
+  bottom: 5vh;
+  z-index: 9999;
+  padding: 50px;
+  color: white;
+  font-family: 'LatoThin', 'LatoLight', 'LatoRegular';
+}
+#modal-comofunciona h4{
+  font-family: 'LatoBlack';
+}
+#modal-info {
+  position: absolute;
+  background-color: #364795;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+
+.closeModal {
+  fill: white;
+  width: 20px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+}
 #modal {
   position: absolute;
   background-color: black;
@@ -343,6 +376,7 @@ body {
   margin-left: 30px;
   margin-right: auto;
   height: 80px;
+  position: relative;
 }
 
 #modal #video-header button {
@@ -375,10 +409,11 @@ body {
   border-left: 2px solid white;
 }
 
-#close-modal {
+#modal .closeModal {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: -5px;
+  margin-right: 40px !important;
+  width: 30px;
 }
 
 .hidden {
@@ -392,6 +427,7 @@ body {
 #prev-video {
   flex: 1;
   display: flex;
+  margin-left: 15px;
 }
 
 #prev-video button {
@@ -399,6 +435,7 @@ body {
   color: white;
   font-size: 100px;
   border: none;
+  cursor: pointer;
 }
 
 #prev-video button::after {
@@ -408,6 +445,7 @@ body {
 #next-video {
   flex: 1;
   display: flex;
+  margin-right: 15px;
 }
 
 #next-video button {
@@ -415,6 +453,7 @@ body {
   color: white;
   font-size: 100px;
   border: none;
+  cursor: pointer;
 }
 
 #next-video button::after {

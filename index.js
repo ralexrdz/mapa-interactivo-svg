@@ -41,7 +41,7 @@ let pinTemplate = `
     style="font-size: .2rem;"
   >TEXT</text>
 `
-const hidePins = false;
+let hidePins = true;
 let playingRandom = false;
 let showPins = []
 let showLaterPins = []
@@ -56,12 +56,14 @@ const toggleNav = () => {
 }
 
 const abreModalComoFunciona = () => {
-  console.log('abreModalComoFunciona')
-  // TODO
+  modal = document.getElementById('modal-comofunciona')
+  modal.classList.remove('hidden')
+  
 } 
 const abreModalInfo = () => {
-  console.log('abreModalComoFunciona')
-  // TODO
+  modal = document.getElementById('modal-info')
+  modal.classList.remove('hidden')
+  
 } 
 
 arm.addEventListener('load', function(){
