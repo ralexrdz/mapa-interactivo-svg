@@ -41,7 +41,7 @@ let pinTemplate = `
     style="font-size: .2rem;"
   >TEXT</text>
 `
-let hidePins = true;
+let hidePins = false;
 let playingRandom = false;
 let showPins = []
 let showLaterPins = []
