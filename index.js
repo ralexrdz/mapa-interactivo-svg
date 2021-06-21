@@ -45,6 +45,7 @@ let hidePins = false;
 let playingRandom = false;
 let showPins = []
 let showLaterPins = []
+let currentBox
 
 const toggleNav = () => {
   var x = document.getElementById("myTopnav");
@@ -96,12 +97,12 @@ const initializeNavigator = () => {
     minZoom: 0.5
   });
 
-  document.getElementById('zoom-in').addEventListener('click', function(ev){
+  document.getElementById('zoom-in').addEventListener('click', function(ev) {
     ev.preventDefault()
     panZoom.zoomIn()
   });
 
-  document.getElementById('zoom-out').addEventListener('click', function(ev){
+  document.getElementById('zoom-out').addEventListener('click', function(ev) {
     ev.preventDefault()
     panZoom.zoomOut()
   });
@@ -191,30 +192,37 @@ const addPinsToSvg = (p, time) => {
 }
 
 const showInfoBox = (e, pinId) => {
-  let info = document.getElementById('info-box')
-  info.innerHTML = `
-    <div class="box">
-      <div id="box-title">
-        ${pins.find(p => p.id == pinId).foro}
-      </div>
-      <div id="box-links"> 
-        <div><button onclick="showVideo('${pinId}')">
-          CONCIERTO
-        </button></div>
-        <div><button>
-          VISÍTALO
-        </button></div>
-      </div>
-    </div>`
-  let pageX = e.pageX || e.changedTouches[0].pageX 
-  let pageY = e.pageY || e.changedTouches[0].pageY 
-  setTimeout(()=> {
-    info.classList.remove('hidden')
-    let x =  pageX-(info.clientWidth/2)
-    let y = pageY-(info.clientHeight+50)
-    info.style.top = `${y}px`
-    info.style.left = `${x}px`
-  }, 500)
+  console.log(currentBox)
+  if (currentBox) {
+    currentBox = null
+    document.getElementById('info-box').classList.add('hidden')
+  } else {
+    currentBox = e.target
+    let info = document.getElementById('info-box')
+    info.innerHTML = `
+      <div class="box">
+        <div id="box-title">
+          ${pins.find(p => p.id == pinId).foro}
+        </div>
+        <div id="box-links"> 
+          <div><button onclick="showVideo('${pinId}')">
+            CONCIERTO
+          </button></div>
+          <div><button>
+            VISÍTALO
+          </button></div>
+        </div>
+      </div>`
+    let pageX = e.pageX || e.changedTouches[0].pageX 
+    let pageY = e.pageY || e.changedTouches[0].pageY 
+    setTimeout(()=> {
+      info.classList.remove('hidden')
+      let x =  pageX-(info.clientWidth / 2)
+      let y = pageY-(info.clientHeight + 50)
+      info.style.top = `${y}px`
+      info.style.left = `${x}px`
+    }, 300)
+  }
 }
 
 const showVideo = (pinId) => {
